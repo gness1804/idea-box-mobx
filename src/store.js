@@ -1,10 +1,10 @@
-import { observable, autorun } from 'mobx';
+import { observable } from 'mobx';
 
 const store = observable({
   ideas: [],
-  instantiateIdeas: autorun(() => {
-    console.log(this.ideas);
-  }),
+  get displayIdeas() {
+    return this.ideas;
+  },
 });
 
 export default store;
