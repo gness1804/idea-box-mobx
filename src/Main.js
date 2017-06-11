@@ -3,22 +3,25 @@ import { autorun } from 'mobx';
 import store from './store';
 
 autorun(() => {
-  console.log(`There are ${store.ideas.length} ideas on the page.`); 
+
 });
 
 class Main extends Component {
 
   addIdea = () => {
-   store.ideas.push({
-     test: 'hi',
-     bigTest: 'foo',
-   });
+    store.ideas.push({
+      name: store.name,
+    });
+  }
+
+  changeName = (e) => {
+    store.name = e.target.value;
   }
 
   render() {
     return (
       <div>
-        <p>I am the Main component.</p>
+        <input placeholder="Idea Name" onChange={this.changeName} />
         <button onClick={this.addIdea}>Submit</button>
       </div>
     );

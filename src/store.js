@@ -1,7 +1,8 @@
 import { observable } from 'mobx';
 
 const store = observable({
-  ideas: [{hello: 'world'}],
+  ideas: [],
+  name: '',
   get displayIdeas() {
     return this.ideas;
   },
