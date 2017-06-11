@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import { observer } from 'mobx-react';
 
-const IdeaContainer = observer(({ ...props }) => {
+const IdeaContainer = observer(({ ...props }: Object) => {
   const { name, body, quality } = props;
 
   return (

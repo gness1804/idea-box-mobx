@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { observer } from 'mobx-react';
 import store from './store';
@@ -6,7 +8,7 @@ import IdeaContainer from './IdeaContainer';
 
 const Main = observer(() => {
   let { name, body, quality } = store;
-  const addIdea = () => {
+  const addIdea = (): void => {
     if (!name || !body) {
       alert('Error: you must enter in a name and a body. Please try again.');
       return;
@@ -18,15 +20,15 @@ const Main = observer(() => {
     }));
   };
 
-  const changeBody = (e) => {
+  const changeBody = (e: Object) => {
     body = e.target.value;
   };
 
-  const changeName = (e) => {
+  const changeName = (e: Object) => {
     name = e.target.value;
   };
 
-  const changeQuality = (e) => {
+  const changeQuality = (e: Object) => {
     quality = e.target.value;
   };
 
