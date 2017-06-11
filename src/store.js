@@ -6,8 +6,8 @@ const store = observable({
   body: '',
   quality: 'Swill',
 
-  get displayIdeas() {
-    return this.ideas;
+  get getCount() {
+    return this.ideas.length;
   },
 });
 

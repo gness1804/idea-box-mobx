@@ -39,6 +39,7 @@ const Main = observer(() => {
       {store.ideas.map((idea) => {
         return <IdeaContainer {...idea} key={idea.id} />;
       })}
+      <p>Total ideas on page: {store.getCount}</p>
     </div>
   );
 });
