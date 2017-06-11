@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { autorun } from 'mobx';
 import store from './store';
-
-autorun(() => {
-
-});
+import Idea from './Idea';
 
 class Main extends Component {
 
   addIdea = () => {
-    store.ideas.push({
+    store.ideas.push(new Idea({
       name: store.name,
-    });
+      body: store.body,
+      quality: store.quality,
+    }));
   }
 
   changeName = (e) => {
@@ -23,6 +21,9 @@ class Main extends Component {
       <div>
         <input placeholder="Idea Name" onChange={this.changeName} />
         <button onClick={this.addIdea}>Submit</button>
+        {store.ideas.map((idea) => {
+          return <p>{idea.title}</p>;
+        })}
       </div>
     );
   }
