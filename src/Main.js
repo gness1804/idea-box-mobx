@@ -4,26 +4,39 @@ import store from './store';
 import Idea from './Idea';
 
 const Main = observer(() => {
+  let { name, body, quality } = store;
   const addIdea = () => {
     store.ideas.push(new Idea({
-      name: 'test',
-      body: store.body,
-      quality: store.quality,
+      name,
+      body,
+      quality,
     }));
+  };
+
+  const changeBody = (e) => {
+    body = e.target.value;
+  };
+
+  const changeName = (e) => {
+    name = e.target.value;
+  };
+
+  const changeQuality = (e) => {
+    quality = e.target.value;
   };
 
   return (
     <div>
-      <input placeholder="Idea Name" onChange={this.changeName} />
-      <input placeholder="Idea Body" onChange={this.changeBody} />
-      <select onChange={this.changeQuality} defaultValue="swill">
+      <input placeholder="Idea Name" onChange={changeName} />
+      <input placeholder="Idea Body" onChange={changeBody} />
+      <select onChange={changeQuality} defaultValue="swill">
         <option value="swill">Swill</option>
         <option value="plausible">Plausible</option>
         <option value="genius">Genius</option>
       </select>
       <button onClick={addIdea}>Submit</button>
       {store.ideas.map((idea) => {
-        return <p>{idea.name}</p>;
+        return <p>{idea.quality}</p>;
       })}
     </div>
   );
