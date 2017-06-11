@@ -33,15 +33,18 @@ const Main = observer(() => {
   };
 
   return (
-    <div>
-      <input placeholder="Idea Name" onChange={changeName} />
-      <input placeholder="Idea Body" onChange={changeBody} />
-      <select onChange={changeQuality} defaultValue="swill">
-        <option value="swill">Swill</option>
-        <option value="plausible">Plausible</option>
-        <option value="genius">Genius</option>
-      </select>
-      <button onClick={addIdea}>Submit</button>
+    <div className="container">
+      <h1>Idea Box</h1>
+      <div className="inputs-container">
+        <input placeholder="Idea Name" onChange={changeName} />
+        <input placeholder="Idea Body" onChange={changeBody} />
+        <select onChange={changeQuality} defaultValue="swill">
+          <option value="swill">Swill</option>
+          <option value="plausible">Plausible</option>
+          <option value="genius">Genius</option>
+        </select>
+        <button onClick={addIdea}>Submit</button>
+      </div>
       {store.ideas.map((idea) => {
         return <IdeaContainer {...idea} key={idea.id} />;
       })}
