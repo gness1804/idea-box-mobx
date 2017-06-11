@@ -7,6 +7,10 @@ import IdeaContainer from './IdeaContainer';
 const Main = observer(() => {
   let { name, body, quality } = store;
   const addIdea = () => {
+    if (!name || !body) {
+      alert('Error: you must enter in a name and a body. Please try again.');
+      return;
+    }
     store.ideas.push(new Idea({
       name,
       body,
