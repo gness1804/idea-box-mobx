@@ -8,8 +8,11 @@ autorun(() => {
 
 class Main extends Component {
 
-  displayIdeas = () => {
-   
+  addIdea = () => {
+   store.ideas.push({
+     test: 'hi',
+     bigTest: 'foo',
+   });
   }
 
   render() {
