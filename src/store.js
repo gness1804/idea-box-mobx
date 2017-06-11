@@ -5,6 +5,7 @@ const store = observable({
   name: '',
   body: '',
   quality: 'Swill',
+
   get displayIdeas() {
     return this.ideas;
   },
