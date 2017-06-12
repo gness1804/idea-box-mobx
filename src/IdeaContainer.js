@@ -7,7 +7,7 @@ const IdeaContainer = observer(({ ...props }: Object) => {
   const { name, body, quality } = props;
 
   return (
-    <div>
+    <div className="idea-container">
       <p>{name}</p>
       <p>{body}</p>
       <p>{quality}</p>

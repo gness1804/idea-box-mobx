@@ -8,12 +8,13 @@ import IdeaContainer from './IdeaContainer';
 
 const Main = observer(() => {
   let { name, body, quality } = store;
+  const { ideas, getCount } = store;
   const addIdea = (): void => {
     if (!name || !body) {
       alert('Error: you must enter in a name and a body. Please try again.');
       return;
     }
-    store.ideas.push(new Idea({
+    ideas.push(new Idea({
       name,
       body,
       quality,
@@ -46,11 +47,11 @@ const Main = observer(() => {
         <button onClick={addIdea}>Submit</button>
       </div>
       <div className="ideas-output-container">
-        {store.ideas.map((idea: Object) => {
+        {ideas.map((idea: Object) => {
           return <IdeaContainer {...idea} key={idea.id} />;
         })}
       </div>
-      <p className="total-ideas-message">Total ideas on page: {store.getCount}</p>
+      <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>
   );
 });
