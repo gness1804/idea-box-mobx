@@ -32,3 +32,8 @@ body {
 .idea-container {
   border: 1px solid #000;
 }
+
+.no-ideas-message {
+  font-weight: 700;
+  margin-top: 3rem; 
+}

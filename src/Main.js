@@ -42,7 +42,7 @@ const Main = observer(() => {
         </div>);
     });
   } else {
-    ideasDisplay = <p>No ideas yet. Please enter one in now.</p>;
+    ideasDisplay = <p className="no-ideas-message">No ideas yet. Please enter one in now.</p>;
   }
 
   return (
