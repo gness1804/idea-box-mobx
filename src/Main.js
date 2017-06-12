@@ -9,6 +9,7 @@ import IdeaContainer from './IdeaContainer';
 const Main = observer(() => {
   let { name, body, quality } = store;
   const { ideas, getCount } = store;
+  let ideasDisplay;
   const addIdea = (): void => {
     if (!name || !body) {
       alert('Error: you must enter in a name and a body. Please try again.');
@@ -33,6 +34,17 @@ const Main = observer(() => {
     quality = e.target.value;
   };
 
+  if (ideas.length) {
+    ideasDisplay = ideas.map((idea: Object) => {
+      return (
+        <div className="ideas-output-container">
+          <IdeaContainer {...idea} key={idea.id} />
+        </div>);
+    });
+  } else {
+    ideasDisplay = <p>No ideas yet. Please enter one in now.</p>;
+  }
+
   return (
     <div className="container">
       <h1>Idea Box</h1>
@@ -46,11 +58,7 @@ const Main = observer(() => {
         </select>
         <button onClick={addIdea}>Submit</button>
       </div>
-      <div className="ideas-output-container">
-        {ideas.map((idea: Object) => {
-          return <IdeaContainer {...idea} key={idea.id} />;
-        })}
-      </div>
+      {ideasDisplay}
       <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>
   );
