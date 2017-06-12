@@ -37,8 +37,8 @@ const Main = observer(() => {
   if (ideas.length) {
     ideasDisplay = ideas.map((idea: Object) => {
       return (
-        <div className="ideas-output-container">
-          <IdeaContainer {...idea} key={idea.id} />
+        <div className="ideas-output-container" key={idea.id}>
+          <IdeaContainer {...idea} />
         </div>);
     });
   } else {
