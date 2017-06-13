@@ -11,6 +11,10 @@ const IdeaContainer = observer(({ ...props }: Object) => {
     store.deleteIdea(id);
   };
 
+  const downvote = (): void => {
+    store.downvote(id);
+  };
+
   const upvote = (): void => {
     store.upvote(id);
   };
@@ -22,6 +26,7 @@ const IdeaContainer = observer(({ ...props }: Object) => {
       <p>Quality: {quality}</p>
       <button onClick={deleteIdea}>Delete Idea</button>
       <button onClick={upvote}>Upvote</button>
+      <button onClick={downvote}>Downvote</button>
     </div>
   );
 });
