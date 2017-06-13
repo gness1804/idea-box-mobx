@@ -52,9 +52,9 @@ const Main = observer(() => {
         <input placeholder="Idea Name" onChange={changeName} />
         <input placeholder="Idea Body" onChange={changeBody} />
         <select onChange={changeQuality} defaultValue="swill">
-          <option value="swill">Swill</option>
-          <option value="plausible">Plausible</option>
-          <option value="genius">Genius</option>
+          <option value="Swill">Swill</option>
+          <option value="Plausible">Plausible</option>
+          <option value="Genius">Genius</option>
         </select>
         <button onClick={addIdea}>Submit</button>
       </div>

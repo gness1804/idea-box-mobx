@@ -7,16 +7,21 @@ import store from './store';
 const IdeaContainer = observer(({ ...props }: Object) => {
   const { name, body, quality, id } = props;
 
-  const deleteIdea = () => {
+  const deleteIdea = (): void => {
     store.deleteIdea(id);
+  };
+
+  const upvote = (): void => {
+    store.upvote(id);
   };
 
   return (
     <div className="idea-container">
-      <p>{name}</p>
-      <p>{body}</p>
-      <p>{quality}</p>
+      <h3>{name}</h3>
+      <p>Description: {body}</p>
+      <p>Quality: {quality}</p>
       <button onClick={deleteIdea}>Delete Idea</button>
+      <button onClick={upvote}>Upvote</button>
     </div>
   );
 });
