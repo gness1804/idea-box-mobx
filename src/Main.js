@@ -17,17 +17,21 @@ const Main = observer(() => {
     store.addIdea(name, body, quality);
   };
 
-  const changeBody = (e: Object) => {
+  const changeBody = (e: Object): void => {
     body = e.target.value;
   };
 
-  const changeName = (e: Object) => {
+  const changeName = (e: Object): void => {
     name = e.target.value;
   };
 
-  const changeQuality = (e: Object) => {
+  const changeQuality = (e: Object): void => {
     quality = e.target.value;
   };
+
+  const sortById = (): void => {
+    store.sortById();
+  }
 
   if (ideas.length) {
     ideasDisplay = ideas.map((idea: Object) => {
@@ -53,7 +57,7 @@ const Main = observer(() => {
         </select>
         <button onClick={addIdea}>Submit</button>
       </div>
-      <button>Sort by Recency</button>
+      <button onClick={sortById}>Sort by Recency</button>
       {ideasDisplay}
       <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>

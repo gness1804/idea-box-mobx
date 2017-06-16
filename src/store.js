@@ -38,6 +38,12 @@ const store = observable({
     });
   },
 
+  sortById() {
+    this.ideas = this.ideas.sort((a: Object, b: Object) => {
+      return b.id - a.id;
+    });
+  },
+
   upvote(id: number) {
     this.ideas = this.ideas.map((idea: Object) => {
       if (idea.id === id) {
