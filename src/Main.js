@@ -31,7 +31,11 @@ const Main = observer(() => {
 
   const sortById = (): void => {
     store.sortById();
-  }
+  };
+
+  const sortByQuality = (): void => {
+    store.sortByQuality();
+  };
 
   if (ideas.length) {
     ideasDisplay = ideas.map((idea: Object) => {
@@ -58,6 +62,7 @@ const Main = observer(() => {
         <button onClick={addIdea}>Submit</button>
       </div>
       <button onClick={sortById}>Sort by Recency</button>
+      <button onClick={sortByQuality}>Sort by Quality</button>
       {ideasDisplay}
       <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>
