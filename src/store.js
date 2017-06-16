@@ -3,6 +3,7 @@
 import { observable } from 'mobx';
 import upvoteProcess from './helpers/upvoteProcess';
 import downvoteProcess from './helpers/downvoteProcess';
+import Idea from './Idea';
 
 const store = observable({
   ideas: [],
@@ -12,6 +13,14 @@ const store = observable({
 
   get getCount() {
     return this.ideas.length;
+  },
+
+  addIdea(name: string, body: string, quality: string) {
+    this.ideas.push(new Idea({
+      name,
+      body,
+      quality,
+    }));
   },
 
   deleteIdea(id: number) {

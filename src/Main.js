@@ -3,7 +3,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import store from './store';
-import Idea from './Idea';
 import IdeaContainer from './IdeaContainer';
 
 const Main = observer(() => {
@@ -15,11 +14,7 @@ const Main = observer(() => {
       alert('Error: you must enter in a name and a body. Please try again.');
       return;
     }
-    ideas.push(new Idea({
-      name,
-      body,
-      quality,
-    }));
+    store.addIdea(name, body, quality);
   };
 
   const changeBody = (e: Object) => {
@@ -58,6 +53,7 @@ const Main = observer(() => {
         </select>
         <button onClick={addIdea}>Submit</button>
       </div>
+      <button>Sort by Recency</button>
       {ideasDisplay}
       <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>
