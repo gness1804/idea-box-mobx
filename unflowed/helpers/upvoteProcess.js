@@ -1,6 +1,6 @@
-// @flow
+//      
 
-const upvoteProcess = (qual: string): string => {
+const upvoteProcess = (qual        )         => {
   let result = '';
   if (qual === 'Swill') {
     result = 'Plausible';
