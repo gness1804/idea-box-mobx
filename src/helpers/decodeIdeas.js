@@ -18,4 +18,4 @@ const decodeIdeas = (ideas: Array<Object>): Array<Object> => {
   });
 };
 
-export default decodeIdeas;
+module.exports = decodeIdeas;

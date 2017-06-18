@@ -15,4 +15,4 @@ const encodeIdeas = (ideas: Array<Object>): Array<Object> => {
   });
 };
 
-export default encodeIdeas;
+module.exports = encodeIdeas;
