@@ -22,6 +22,12 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Idea Box');
     });
   });
+
+  test.it('application should serve up two input fields on load', function () {
+    driver.findElements({ tagName: 'input' }).then(function (select) {
+      assert.equal(select.length, 2);
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
