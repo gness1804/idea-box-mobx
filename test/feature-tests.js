@@ -28,6 +28,14 @@ test.describe('App', function () {
       assert.equal(select.length, 2);
     });
   });
+
+  test.it('value displayed in quality dropdown should be Swill by default', function () {
+    driver.findElement(webdriver.By.css('#quality-field')).then(function (element) {
+      return element.getAttribute('value');
+    }).then(function (text) {
+      assert.strictEqual(text, 'Swill');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
