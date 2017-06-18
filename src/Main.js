@@ -8,13 +8,18 @@ import IdeaContainer from './IdeaContainer';
 const Main = observer(() => {
   let { name, body, quality } = store;
   const { ideas, getCount } = store;
+  let nameInput = null;
+  let bodyInput = null;
   let ideasDisplay;
+
   const addIdea = (): void => {
     if (!name || !body) {
       alert('Error: you must enter in a name and a body. Please try again.');
       return;
     }
     store.addIdea(name, body, quality);
+    nameInput.value = '';
+    bodyInput.value = '';
   };
 
   const changeBody = (e: Object): void => {
@@ -52,8 +57,8 @@ const Main = observer(() => {
     <div className="container">
       <h1>Idea Box</h1>
       <div className="inputs-container">
-        <input placeholder="Idea Name" onChange={changeName} />
-        <input placeholder="Idea Body" onChange={changeBody} />
+        <input placeholder="Idea Name" onChange={changeName} ref={(input) => { nameInput = input; }} />
+        <input placeholder="Idea Body" onChange={changeBody} ref={(input) => { bodyInput = input; }} />
         <select onChange={changeQuality} defaultValue="swill">
           <option value="Swill">Swill</option>
           <option value="Plausible">Plausible</option>
