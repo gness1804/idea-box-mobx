@@ -18,11 +18,16 @@ const store = observable({
   },
 
   addIdea(name: string, body: string, quality: string): void {
-    this.ideas.push(new Idea({
-      name,
-      body,
-      quality,
-    }));
+    const promise = new Promise((resolve) => {
+      resolve(
+        this.ideas.push(new Idea({
+          name,
+          body,
+          quality,
+        })),
+      );
+    });
+    promise.then(() => { this.resetStates(); });
   },
 
   deleteIdea(id: number): void {
@@ -38,6 +43,12 @@ const store = observable({
       }
       return idea;
     });
+  },
+
+  resetStates(): void {
+    this.name = '';
+    this.body = '';
+    this.quality = 'Swill';
   },
 
   sortById(): void {
