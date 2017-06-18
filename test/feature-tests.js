@@ -37,11 +37,19 @@ test.describe('App', function () {
     });
   });
 
-  test.it('App should tell user that there are no ideas yet on load', function () {
+  test.it('App should tell user that there are no ideas yet on load (through message string)', function () {
     driver.findElement({ className: 'no-ideas-message' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
       assert.strictEqual(text, 'No ideas yet. Please enter one in now.');
+    });
+  });
+
+  test.it('App should tell user that there are no ideas yet on load (through total ideas on page)', function () {
+    driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Total ideas on page: 0');
     });
   });
 });
