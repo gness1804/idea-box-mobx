@@ -10,6 +10,7 @@ const Main = observer(() => {
   const { ideas, getCount } = store;
   let nameInput = null;
   let bodyInput = null;
+  let qualityInput = null;
   let ideasDisplay;
 
   const addIdea = (): void => {
@@ -20,6 +21,7 @@ const Main = observer(() => {
     store.addIdea(name, body, quality);
     nameInput.value = '';
     bodyInput.value = '';
+    qualityInput.value = 'Swill';
   };
 
   const changeBody = (e: Object): void => {
@@ -59,7 +61,7 @@ const Main = observer(() => {
       <div className="inputs-container">
         <input placeholder="Idea Name" onChange={changeName} ref={(input) => { nameInput = input; }} />
         <input placeholder="Idea Body" onChange={changeBody} ref={(input) => { bodyInput = input; }} />
-        <select onChange={changeQuality} defaultValue="swill">
+        <select onChange={changeQuality} defaultValue="Swill" ref={(input) => { qualityInput = input; }}>
           <option value="Swill">Swill</option>
           <option value="Plausible">Plausible</option>
           <option value="Genius">Genius</option>
