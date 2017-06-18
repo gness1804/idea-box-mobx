@@ -36,6 +36,14 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Swill');
     });
   });
+
+  test.it('App should tell user that there are no ideas yet on load', function () {
+    driver.findElement({ className: 'no-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'No ideas yet. Please enter one in now.');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
