@@ -10,4 +10,4 @@ const downvoteProcess = (qual: string): string => {
   return result || qual;
 };
 
-export default downvoteProcess;
+module.exports = downvoteProcess;
