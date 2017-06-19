@@ -109,6 +109,11 @@ test.describe('App', function () {
     }).then(function (text) {
       assert.strictEqual(text, 'Total ideas on page: 0');
     });
+    driver.findElement({ className: 'no-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'No ideas yet. Please enter one in now.');
+    });
   });
 });
 
