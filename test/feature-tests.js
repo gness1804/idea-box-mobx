@@ -84,6 +84,16 @@ test.describe('App', function () {
     }).then(function (text) {
       assert.strictEqual(text, 'Delete Idea');
     });
+    driver.findElement({ className: 'upvote-idea-button' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Upvote');
+    });
+    driver.findElement({ className: 'downvote-idea-button' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Downvote');
+    });
   });
 });
 
