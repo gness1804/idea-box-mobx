@@ -99,6 +99,17 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Downvote');
     });
   });
+
+  test.it('Delete button should work', function () {
+    enterIdea();
+    const button = driver.findElement({ className: 'delete-idea-button' });
+    button.click();
+    driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Total ideas on page: 0');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
