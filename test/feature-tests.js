@@ -115,6 +115,17 @@ test.describe('App', function () {
       assert.strictEqual(text, 'No ideas yet. Please enter one in now.');
     });
   });
+
+  test.it('Upvote button should work', function () {
+    enterIdea();
+    const button = driver.findElement({ className: 'upvote-idea-button' });
+    button.click();
+    driver.findElement({ className: 'quality-description' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Quality: Plausible');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
