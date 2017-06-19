@@ -58,9 +58,6 @@ test.describe('App', function () {
   });
 
   test.it('Entering in an idea should display appropriate data', function () {
-    //length for total ideas count should change to 1
-    //the idea container element should exist
-    //idea name, body, and quality should show up in the idea container
     const name = driver.findElement({ id: 'name-input' });
     const body = driver.findElement({ id: 'body-input' });
     const button = driver.findElement({ id: 'main-button' });
@@ -80,7 +77,12 @@ test.describe('App', function () {
     driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
-      assert.strictEqual(text, 'Total ideas on page: 1');
+      assert.strictEqual(text, 'Total ideas on page: 1', 'The total ideas on page message has updated to reflect one idea being added.');
+    });
+    driver.findElement({ className: 'delete-idea-button' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Delete Idea');
     });
   });
 });
