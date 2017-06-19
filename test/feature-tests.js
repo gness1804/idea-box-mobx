@@ -3,6 +3,10 @@
 const assert = require('assert');
 const webdriver = require('selenium-webdriver');
 const test = require('selenium-webdriver/testing');
+const fakeIdeas = require('./helpers/fakeIdeas');
+
+const fakeName = fakeIdeas[0].name;
+const fakeBody = fakeIdeas[0].body;
 
 const driver = new webdriver.Builder()
   .forBrowser('chrome')
@@ -60,13 +64,18 @@ test.describe('App', function () {
     const name = driver.findElement({ id: 'name-input' });
     const body = driver.findElement({ id: 'body-input' });
     const button = driver.findElement({ id: 'main-button' });
-    name.sendKeys('Bake a cake');
-    body.sendKeys('Go to the store, get the items, then go home and bake the cake.');
+    name.sendKeys(fakeName);
+    body.sendKeys(fakeBody);
     button.click();
     driver.findElement({ tagName: 'h3' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
-      assert.strictEqual(text, 'Bake a cake');
+      assert.strictEqual(text, 'Bake a cake', 'The name should appear correctly.');
+    });
+    driver.findElement({ className: 'idea-description' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Description: Go to the store, get the items, then go home and bake the cake.', 'The body should appear correctly.');
     });
   });
 });

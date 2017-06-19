@@ -22,7 +22,7 @@ const IdeaContainer = observer(({ ...props }: Object) => {
   return (
     <div className="idea-container">
       <h3>{name}</h3>
-      <p>Description: {body}</p>
+      <p className="idea-description">Description: {body}</p>
       <p>Quality: {quality}</p>
       <button onClick={deleteIdea}>Delete Idea</button>
       <button onClick={upvote}>Upvote</button>
