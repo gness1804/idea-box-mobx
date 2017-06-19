@@ -126,6 +126,19 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Quality: Plausible');
     });
   });
+
+  test.it('Downvote button should work', function () {
+    enterIdea();
+    const buttonUp = driver.findElement({ className: 'upvote-idea-button' });
+    buttonUp.click();
+    const buttonDown = driver.findElement({ className: 'downvote-idea-button' });
+    buttonDown.click();
+    driver.findElement({ className: 'quality-description' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Quality: Swill');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
