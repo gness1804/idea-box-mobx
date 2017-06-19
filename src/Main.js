@@ -15,13 +15,14 @@ const Main = observer(() => {
 
   const addIdea = (): void => {
     if (!name || !body) {
-      alert('Error: you must enter in a name and a body. Please try again.');
+      document.getElementById('error-mssg').innerText = 'Error: you must enter in a name and a body. Please try again.';
       return;
     }
     store.addIdea(name, body, quality);
     nameInput.value = '';
     bodyInput.value = '';
     qualityInput.value = 'Swill';
+    document.getElementById('error-mssg').innerText = '';
   };
 
   const changeBody = (e: Object): void => {
@@ -58,6 +59,7 @@ const Main = observer(() => {
   return (
     <div className="container">
       <h1>Idea Box</h1>
+      <p id="error-mssg" />
       <div className="inputs-container">
         <input
           id="name-input"

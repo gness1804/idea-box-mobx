@@ -66,6 +66,28 @@ test.describe('App', function () {
     });
   });
 
+  test.it('Clicking submit with insufficient data should not enter an idea onto the page', function () {
+    const name = driver.findElement({ id: 'name-input' });
+    const button = driver.findElement({ id: 'main-button' });
+    name.sendKeys(fakeName);
+    button.click();
+    driver.findElement({ id: 'error-mssg' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Error: you must enter in a name and a body. Please try again.');
+    });
+    driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Total ideas on page: 0');
+    });
+    driver.findElement({ className: 'no-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'No ideas yet. Please enter one in now.');
+    });
+  });
+
   test.it('Entering in an idea should display appropriate data', function () {
     enterIdea();
     driver.findElement({ tagName: 'h3' }).then(function (element) {
