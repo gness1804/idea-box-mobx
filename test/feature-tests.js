@@ -19,6 +19,15 @@ test.describe('App', function () {
     driver.get('http://localhost:3000');
   });
 
+  function enterIdea() {
+    const name = driver.findElement({ id: 'name-input' });
+    const body = driver.findElement({ id: 'body-input' });
+    const button = driver.findElement({ id: 'main-button' });
+    name.sendKeys(fakeName);
+    body.sendKeys(fakeBody);
+    button.click();
+  }
+
   test.it('title should render properly', function () {
     driver.findElement({ tagName: 'h1' }).then(function (title) {
       return title.getText();
@@ -58,12 +67,7 @@ test.describe('App', function () {
   });
 
   test.it('Entering in an idea should display appropriate data', function () {
-    const name = driver.findElement({ id: 'name-input' });
-    const body = driver.findElement({ id: 'body-input' });
-    const button = driver.findElement({ id: 'main-button' });
-    name.sendKeys(fakeName);
-    body.sendKeys(fakeBody);
-    button.click();
+    enterIdea();
     driver.findElement({ tagName: 'h3' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
