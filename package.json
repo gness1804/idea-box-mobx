@@ -20,7 +20,7 @@
     "react-scripts": "1.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run build:flow && react-scripts start",
     "build": "react-scripts build",
     "test": "mocha",
     "eject": "react-scripts eject",

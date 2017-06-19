@@ -59,14 +59,29 @@ const Main = observer(() => {
     <div className="container">
       <h1>Idea Box</h1>
       <div className="inputs-container">
-        <input placeholder="Idea Name" onChange={changeName} ref={(input) => { nameInput = input; }} />
-        <input placeholder="Idea Body" onChange={changeBody} ref={(input) => { bodyInput = input; }} />
-        <select onChange={changeQuality} defaultValue="Swill" ref={(input) => { qualityInput = input; }}>
+        <input
+          id="name-input"
+          placeholder="Idea Name"
+          onChange={changeName}
+          ref={(input) => { nameInput = input; }}
+        />
+        <input
+          id="body-input"
+          placeholder="Idea Body"
+          onChange={changeBody}
+          ref={(input) => { bodyInput = input; }}
+        />
+        <select
+          id="quality-field"
+          onChange={changeQuality}
+          defaultValue="Swill"
+          ref={(input) => { qualityInput = input; }}
+        >
           <option value="Swill">Swill</option>
           <option value="Plausible">Plausible</option>
           <option value="Genius">Genius</option>
         </select>
-        <button onClick={addIdea}>Submit</button>
+        <button id="main-button" onClick={addIdea}>Submit</button>
       </div>
       <button onClick={sortById}>Sort by Recency</button>
       <button onClick={sortByQuality}>Sort by Quality</button>
