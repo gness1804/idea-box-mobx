@@ -52,6 +52,23 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Total ideas on page: 0');
     });
   });
+
+  test.it('Entering in an idea should display appropriate data', function () {
+    //length for total ideas count should change to 1
+    //the idea container element should exist
+    //idea name, body, and quality should show up in the idea container
+    const name = driver.findElement({ id: 'name-input' });
+    const body = driver.findElement({ id: 'body-input' });
+    const button = driver.findElement({ id: 'main-button' });
+    name.sendKeys('Bake a cake');
+    body.sendKeys('Go to the store, get the items, then go home and bake the cake.');
+    button.click();
+    driver.findElement({ tagName: 'h3' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Bake a cake');
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
