@@ -77,6 +77,11 @@ test.describe('App', function () {
     }).then(function (text) {
       assert.strictEqual(text, 'Description: Go to the store, get the items, then go home and bake the cake.', 'The body should appear correctly.');
     });
+    driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Total ideas on page: 1');
+    });
   });
 });
 
