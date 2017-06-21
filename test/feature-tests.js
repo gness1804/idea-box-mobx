@@ -5,9 +5,6 @@ const webdriver = require('selenium-webdriver');
 const test = require('selenium-webdriver/testing');
 const fakeIdeas = require('./helpers/fakeIdeas');
 
-const fakeName = fakeIdeas[0].name;
-const fakeBody = fakeIdeas[0].body;
-
 const driver = new webdriver.Builder()
   .forBrowser('chrome')
   .build();
@@ -23,8 +20,8 @@ test.describe('App', function () {
     const name = driver.findElement({ id: 'name-input' });
     const body = driver.findElement({ id: 'body-input' });
     const button = driver.findElement({ id: 'main-button' });
-    name.sendKeys(fakeName);
-    body.sendKeys(fakeBody);
+    name.sendKeys(fakeIdeas[0].name);
+    body.sendKeys(fakeIdeas[0].body);
     button.click();
   }
 
@@ -69,7 +66,7 @@ test.describe('App', function () {
   test.it('Clicking submit with insufficient data should not enter an idea onto the page', function () {
     const name = driver.findElement({ id: 'name-input' });
     const button = driver.findElement({ id: 'main-button' });
-    name.sendKeys(fakeName);
+    name.sendKeys(fakeIdeas[0].name);
     button.click();
     driver.findElement({ id: 'error-mssg' }).then(function (element) {
       return element.getText();
