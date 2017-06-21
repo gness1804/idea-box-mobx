@@ -162,11 +162,13 @@ test.describe('App', function () {
     });
   });
 
-  // test.it('Entering in two ideas should produce two ideas on the page', function () {
-  //   enterIdea();
-  //   enterIdea();
-
-  // });
+  test.it('Entering in two ideas should produce two ideas on the page', function () {
+    enterIdea();
+    enterIdea();
+    driver.findElements({ className: 'idea-name' }).then(function (name) {
+      assert.strictEqual(name.length, 2);
+    });
+  });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
