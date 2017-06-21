@@ -85,8 +85,8 @@ const Main = observer(() => {
         </select>
         <button id="main-button" onClick={addIdea}>Submit</button>
       </div>
-      <button onClick={sortById}>Sort by Recency</button>
-      <button onClick={sortByQuality}>Sort by Quality</button>
+      <button className="sort-by-id-button" onClick={sortById}>Sort by Recency</button>
+      <button className="sort-by-quality-button" onClick={sortByQuality}>Sort by Quality</button>
       {ideasDisplay}
       <p className="total-ideas-message">Total ideas on page: {getCount}</p>
     </div>

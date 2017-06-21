@@ -20,8 +20,11 @@ test.describe('App', function () {
     if (!num) {
       /* eslint-disable no-console */
       console.log('Error in test: needs number arg for enterIdea.');
-      /* eslint-enable no-console */
       return;
+    }
+    if (num > 3 || num < 0) {
+      console.log('Error in test: you must enter in a whole number between 1 and 3.');
+      /* eslint-enable no-console */
     }
     for (let i = 0; i < num; i++) {
       const name = driver.findElement({ id: 'name-input' });
@@ -172,6 +175,18 @@ test.describe('App', function () {
     driver.findElements({ className: 'idea-name' }).then(function (name) {
       assert.strictEqual(name.length, 2);
     });
+  });
+
+  test.it('should sort ideas correctly by date added', function () {
+    enterIdea(3);
+    const button = driver.findElement({ className: 'sort-by-id-button' });
+    button.click();
+    driver.findElement({ className: 'idea-name' }).then(function (element) {
+      return element.getText();
+    }).then(function (text) {
+      assert.strictEqual(text, 'Build a jigsaw puzzle');
+    });
+    // need to correctly find second and third idea names to fully test that sorting worked
   });
 });
 
