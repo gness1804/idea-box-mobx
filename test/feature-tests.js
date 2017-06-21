@@ -90,7 +90,7 @@ test.describe('App', function () {
 
   test.it('Entering in an idea should display appropriate data', function () {
     enterIdea();
-    driver.findElement({ tagName: 'h3' }).then(function (element) {
+    driver.findElement({ className: 'idea-name' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
       assert.strictEqual(text, 'Bake a cake', 'The name should appear correctly.');
@@ -161,6 +161,12 @@ test.describe('App', function () {
       assert.strictEqual(text, 'Quality: Swill');
     });
   });
+
+  // test.it('Entering in two ideas should produce two ideas on the page', function () {
+  //   enterIdea();
+  //   enterIdea();
+
+  // });
 });
 
 /* eslint-enable func-names, prefer-arrow-callback*/
