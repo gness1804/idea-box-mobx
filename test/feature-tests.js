@@ -16,13 +16,21 @@ test.describe('App', function () {
     driver.get('http://localhost:3000');
   });
 
-  function enterIdea() {
-    const name = driver.findElement({ id: 'name-input' });
-    const body = driver.findElement({ id: 'body-input' });
-    const button = driver.findElement({ id: 'main-button' });
-    name.sendKeys(fakeIdeas[0].name);
-    body.sendKeys(fakeIdeas[0].body);
-    button.click();
+  function enterIdea(num) {
+    if (!num) {
+      /* eslint-disable no-console */
+      console.log('Error in test: needs number arg for enterIdea.');
+      /* eslint-enable no-console */
+      return;
+    }
+    for (let i = 0; i < num; i++) {
+      const name = driver.findElement({ id: 'name-input' });
+      const body = driver.findElement({ id: 'body-input' });
+      const button = driver.findElement({ id: 'main-button' });
+      name.sendKeys(fakeIdeas[i].name);
+      body.sendKeys(fakeIdeas[i].body);
+      button.click();
+    }
   }
 
   test.it('title should render properly', function () {
@@ -86,7 +94,7 @@ test.describe('App', function () {
   });
 
   test.it('Entering in an idea should display appropriate data', function () {
-    enterIdea();
+    enterIdea(1);
     driver.findElement({ className: 'idea-name' }).then(function (element) {
       return element.getText();
     }).then(function (text) {
@@ -120,7 +128,7 @@ test.describe('App', function () {
   });
 
   test.it('Delete button should work', function () {
-    enterIdea();
+    enterIdea(1);
     const button = driver.findElement({ className: 'delete-idea-button' });
     button.click();
     driver.findElement({ className: 'total-ideas-message' }).then(function (element) {
@@ -136,7 +144,7 @@ test.describe('App', function () {
   });
 
   test.it('Upvote button should work', function () {
-    enterIdea();
+    enterIdea(1);
     const button = driver.findElement({ className: 'upvote-idea-button' });
     button.click();
     driver.findElement({ className: 'quality-description' }).then(function (element) {
@@ -147,7 +155,7 @@ test.describe('App', function () {
   });
 
   test.it('Downvote button should work', function () {
-    enterIdea();
+    enterIdea(1);
     const buttonUp = driver.findElement({ className: 'upvote-idea-button' });
     buttonUp.click();
     const buttonDown = driver.findElement({ className: 'downvote-idea-button' });
@@ -160,8 +168,7 @@ test.describe('App', function () {
   });
 
   test.it('Entering in two ideas should produce two ideas on the page', function () {
-    enterIdea();
-    enterIdea();
+    enterIdea(2);
     driver.findElements({ className: 'idea-name' }).then(function (name) {
       assert.strictEqual(name.length, 2);
     });
