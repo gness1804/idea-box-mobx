@@ -18,3 +18,30 @@
 .sort-by-quality-button:hover {
   background-color:rgb(241, 248, 249);
 }
+
+.idea-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.downvote-idea-button,
+.upvote-idea-button,
+.delete-idea-button {
+  background-color:rgb(185, 240, 244);
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.delete-idea-button {
+  background-color:rgb(249, 137, 151);
+}
+
+.delete-idea-button:hover {
+  background-color:rgb(240, 234, 235);
+}
+
+.downvote-idea-button:hover,
+.upvote-idea-button:hover {
+  background-color:rgb(241, 248, 249);
+}

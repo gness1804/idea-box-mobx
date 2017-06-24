@@ -22,11 +22,13 @@ const IdeaContainer = observer(({ ...props }: Object) => {
   return (
     <div className="idea-container">
       <h3 className="idea-name">{name}</h3>
-      <p className="idea-description">Description: {body}</p>
-      <p className="quality-description">Quality: {quality}</p>
-      <button className="delete-idea-button" onClick={deleteIdea}>Delete Idea</button>
-      <button className="upvote-idea-button" onClick={upvote}>Upvote</button>
-      <button className="downvote-idea-button" onClick={downvote}>Downvote</button>
+      <p className="idea-description"><span className="desc-span">Description:</span> {body}</p>
+      <p className="quality-description"><span className="qual-span">Quality:</span> {quality}</p>
+      <div className="idea-buttons-container">
+        <button className="delete-idea-button" onClick={deleteIdea}>Delete Idea</button>
+        <button className="upvote-idea-button" onClick={upvote}>Upvote</button>
+        <button className="downvote-idea-button" onClick={downvote}>Downvote</button>
+      </div>
     </div>
   );
 });

@@ -8,6 +8,15 @@
   margin-top: 3rem;
 }
 
+.idea-name {
+  font-size: 1.5rem;
+}
+
+.desc-span,
+.qual-span {
+  font-weight: 700;
+}
+
 #error-mssg {
   color: rgb(225, 24, 54);
   font-style: italic;
