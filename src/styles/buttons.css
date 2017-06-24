@@ -6,3 +6,15 @@
 #main-button:hover {
   background-color:rgb(208, 241, 218);
 }
+
+.sort-by-id-button,
+.sort-by-quality-button {
+  background-color:rgb(185, 240, 244);
+  cursor: pointer;
+  margin: 0 1.5rem;
+}
+
+.sort-by-id-button:hover,
+.sort-by-quality-button:hover {
+  background-color:rgb(241, 248, 249);
+}

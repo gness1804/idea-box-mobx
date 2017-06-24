@@ -7,3 +7,8 @@
   font-weight: 700;
   margin-top: 3rem;
 }
+
+#error-mssg {
+  color: rgb(225, 24, 54);
+  font-style: italic;
+}
