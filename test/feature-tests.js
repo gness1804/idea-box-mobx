@@ -186,7 +186,6 @@ test.describe('App', function () {
     }).then(function (text) {
       assert.strictEqual(text, 'Build a jigsaw puzzle');
     });
-    // need to correctly find second and third idea names to fully test that sorting worked
   });
 });
 

@@ -21,7 +21,7 @@ const IdeaContainer = observer(({ ...props }        ) => {
 
   return (
     <div className="idea-container">
-      <h3>{name}</h3>
+      <h3 className="idea-name">{name}</h3>
       <p className="idea-description">Description: {body}</p>
       <p className="quality-description">Quality: {quality}</p>
       <button className="delete-idea-button" onClick={deleteIdea}>Delete Idea</button>
