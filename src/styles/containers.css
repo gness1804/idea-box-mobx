@@ -1,0 +1,22 @@
+.main-container {
+  text-align: center;
+}
+
+.inputs-container {
+  display: flex;
+  justify-content: center;
+}
+
+.inputs-container > * {
+  margin-right: 1rem;
+}
+
+.ideas-output-container {
+  border: 1px solid #000;
+  margin: 3rem auto;
+  width: 80vw;
+}
+
+.idea-container {
+  border: 1px solid #000;
+}

@@ -1,42 +1,11 @@
 @import './buttons.css';
+@import './containers.css';
+@import './text.css';
 
+/*global styles*/
 body {
-  background-color:rgb(113, 206, 238);
+  background-color: rgb(145, 213, 237);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  text-align: center;
-}
-
-.inputs-container {
-  direction: row;
-  display: flex;
-  justify-content: center;
-}
-
-.inputs-container > * {
-  margin-right: 1rem;
-}
-
-.ideas-output-container {
-  border: 1px solid #000;
-  margin: 3rem auto;
-  width: 80vw;
-}
-
-.total-ideas-message {
-  font-weight: 700;
-  margin-top: 1.3rem;
-}
-
-.idea-container {
-  border: 1px solid #000;
-}
-
-.no-ideas-message {
-  font-weight: 700;
-  margin-top: 3rem;
 }

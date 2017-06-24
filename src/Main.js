@@ -57,7 +57,7 @@ const Main = observer(() => {
   }
 
   return (
-    <div className="container">
+    <div className="main-container">
       <h1>Idea Box</h1>
       <p id="error-mssg" />
       <div className="inputs-container">

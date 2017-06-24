@@ -1,3 +1,8 @@
 #main-button {
+  background-color:rgb(97, 236, 141);
+  cursor: pointer;
+}
 
+#main-button:hover {
+  background-color:rgb(208, 241, 218);
 }
