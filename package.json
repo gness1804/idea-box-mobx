@@ -26,6 +26,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src test",
     "flow": "flow",
-    "build:flow": "flow-remove-types src/ -d unflowed/"
+    "build:flow": "flow-remove-types src/ -d unflowed/",
+    "test:build": "npm run build:flow && npm run test"
   }
 }
